@@ -16,7 +16,8 @@ services:
    networks:
      - myAppNet
  app:
-   image: padwalsagar/my-containerized-app:latest
+   build:
+    context: .
    networks:
      - myAppNet
    ports:
@@ -25,7 +26,6 @@ services:
      - app-db
 volumes:
  postgres-data:
-    external: true
 networks:
     myAppNet:
         name: postgres-net
